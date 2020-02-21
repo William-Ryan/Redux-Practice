@@ -1,6 +1,7 @@
 import React from 'react'
+import { connect } from "react-redux";
 
-const PlayerForm = () => {
+const PlayerForm = (props) => {
 
     return (
         <div>
@@ -9,4 +10,11 @@ const PlayerForm = () => {
     )
 }
 
-export default PlayerForm;
+const mapStateToProps = state => {
+    return {
+        players: state.players,
+        error: state.error
+    }
+}
+
+export default connect(mapStateToProps, {})(PlayerForm);
